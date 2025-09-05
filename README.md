@@ -18,4 +18,5 @@ A small CLI tool to check links for common phishing indicators.
 git clone https://github.com/Battleking-cyber/phishcheck.git
 cd phishcheck
 chmod +x phishcheck.sh
+./phishcheck.sh
 
