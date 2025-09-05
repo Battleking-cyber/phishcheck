@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y shellcheck openssl
+
+      - name: Run ShellCheck on script
+        run: shellcheck bin/phishcheck.sh
+
+      - name: Run basic non-interactive run
+        env:
+          # No API key by default
+          VIRUSTOTAL_API_KEY: ""
+        run: |
+          chmod +x bin/phishcheck.sh
+          # Run quickly against example.com; expect exit code 0 (low risk)
+          set -o pipefail
+          bin/phishcheck.sh --url "https://example.com" --output json --noninteractive

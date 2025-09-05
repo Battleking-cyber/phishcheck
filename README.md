@@ -1,25 +1,20 @@
-# phishcheck
-phish-detector,   phishing-url-scanner, phish-guard,  anti-phish
-phishcheck/                  # repo root
-├─ bin/
-│  └─ phishcheck.sh
-├─ docs/
-│  └─ design.md
-├─ .github/
-│  └─ workflows/
-│     └─ ci.yml
-├─ .gitignore
-├─ README.md
-├─ LICENSE
-├─ CHANGELOG.md
-├─ CONTRIBUTING.md
-└─ logs/                     # runtime logs (gitignored)
+# PhishCheck — Phishing Page Detection (Author: Pankaj A)
 
+A small CLI tool to check links for common phishing indicators.
 
-Usage
+## Features
+- Heuristic checks: IP-based URL, suspicious TLDs, '@' character, SSL checks
+- CLI & non-interactive mode for automation
+- JSON output for machine consumption
+- GitHub Actions CI (shellcheck + smoke test)
 
-# Interactive
-bin/phishcheck.sh
+## Requirements
+- bash (Linux / macOS)
+- openssl
+- (optional) timeout (for quicker SSL checks)
 
-# Non-interactive (suitable for CI)
-bin/phishcheck.sh --url "https://example.com" --output json --noninteractive
+## Install
+```bash
+git clone https://github.com/<you>/phishcheck.git
+cd phishcheck
+chmod +x bin/phishcheck.sh
