@@ -15,7 +15,7 @@ A small CLI tool to check links for common phishing indicators.
 
 ## Install
 ```bash
-git clone https://github.com/<you>/phishcheck.git
+git clone https://github.com/Battleking-cyber/phishcheck.git
 cd phishcheck
 chmod +x phishcheck.sh
 
